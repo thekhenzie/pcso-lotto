@@ -35,3 +35,28 @@ finalDf = pd.DataFrame({'Numbers': nums, 'Appearance': ctr}).sort_values('Appear
 
 finalDf.plot(x='Numbers',y='Appearance', rot=0, kind='bar', legend=False)
 plt.show()
+
+
+def lotteryNo():
+    import random
+    integer = []
+    for number in range(0 , 7):
+        integer.append(random.randint(0, 58))
+    return integer
+
+list_draw = [];
+for index,row in draw_df.iterrows():
+    list_draw.append(row.values.tolist())
+
+for ld in list_draw:
+    ind = list_draw.index(ld);
+    if ind !=456:
+        for t in range(ind+1, 457):
+            x = len(set(ld) & set(list_draw[t]))
+            if x==5:
+                print(ld+'-'+ind)
+
+print('done')
+
+    
+    
